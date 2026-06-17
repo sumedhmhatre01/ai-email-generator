@@ -9,7 +9,7 @@ async function loadHistory() {
 
         const response =
         await fetch(
-            `http://127.0.0.1:5000/api/email/history/${userId}`
+            `https://ai-email-generator-syc6.onrender.com/api/email/history/${userId}`
         );
 
         const history =
@@ -219,7 +219,7 @@ function attachFavoriteHandlers(){
 
                     const response =
                     await fetch(
-                        `http://127.0.0.1:5000/api/email/favorite/${emailId}`,
+                        `https://ai-email-generator-syc6.onrender.com/api/email/favorite/${emailId}`,
                         {
                             method: "PUT"
                         }
@@ -329,7 +329,7 @@ function attachDeleteHandlers(){
 
             const response =
             await fetch(
-                `http://127.0.0.1:5000/api/email/delete/${selectedEmailId}`,
+                `https://ai-email-generator-syc6.onrender.com/api/email/delete/${selectedEmailId}`,
                 {
                     method:
                     "DELETE"

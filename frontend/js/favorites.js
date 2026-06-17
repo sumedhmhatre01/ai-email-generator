@@ -4,7 +4,7 @@ async function addToFavorites(emailId) {
 
         const response =
         await fetch(
-            `http://127.0.0.1:5000/api/email/favorite/${emailId}`,
+            `https://ai-email-generator-syc6.onrender.com/api/email/favorite/${emailId}`,
             {
                 method: "PUT"
             }
@@ -44,7 +44,7 @@ async function loadFavorites() {
 
         const response =
         await fetch(
-            `http://127.0.0.1:5000/api/email/favorites/${userId}`
+            `https://ai-email-generator-syc6.onrender.com/api/email/favorites/${userId}`
         );
 
         const favorites =

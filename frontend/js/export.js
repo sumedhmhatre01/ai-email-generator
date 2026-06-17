@@ -37,7 +37,7 @@ if(pdfBtn){
 
                 const response =
                 await fetch(
-                    "http://127.0.0.1:5000/api/export/pdf",
+                    "https://ai-email-generator-syc6.onrender.com/api/export/pdf",
                     {
                         method:"POST",
 

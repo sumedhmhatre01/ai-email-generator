@@ -9,7 +9,7 @@ async function loadAnalytics() {
 
         const response =
         await fetch(
-            `http://127.0.0.1:5000/api/email/analytics/${userId}`
+            `https://ai-email-generator-syc6.onrender.com/api/email/analytics/${userId}`
         );
 
         const emails =
