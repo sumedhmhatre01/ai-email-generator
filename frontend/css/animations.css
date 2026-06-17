@@ -1,0 +1,47 @@
+@keyframes float {
+
+0%{
+transform:translateY(0px);
+}
+
+50%{
+transform:translateY(-20px);
+}
+
+100%{
+transform:translateY(0px);
+}
+
+}
+
+.bg-gradient{
+
+animation:
+float 8s ease-in-out infinite;
+}
+
+.feature-card{
+
+animation:
+fadeUp .7s ease;
+}
+
+@keyframes fadeUp{
+
+from{
+
+opacity:0;
+
+transform:
+translateY(40px);
+}
+
+to{
+
+opacity:1;
+
+transform:
+translateY(0);
+}
+
+}

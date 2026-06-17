@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        AI Email Generator Dashboard
+    </title>
+
+    <link rel="stylesheet"
+          href="css/dashboard.css">
+
+    <link rel="stylesheet"
+          href="css/animations.css">
+
+    <link rel="stylesheet"
+          href="css/responsive.css">
+
+</head>
+
+<body>
+
+<div class="dashboard-container">
+
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-logo">
+
+            AI Email Generator
+
+        </div>
+
+        <ul class="sidebar-menu">
+
+            <li class="active"
+                data-tab="generator">
+
+                Generate Email
+
+            </li>
+
+            <li data-tab="templates">
+
+                Templates
+
+            </li>
+
+            <li data-tab="history">
+
+                History
+
+            </li>
+
+            <li data-tab="favorites">
+
+                Favorites
+
+            </li>
+
+            <li data-tab="settings">
+
+                Settings
+
+            </li>
+
+        </ul>
+
+    </aside>
+
+    <!-- Main Content -->
+
+    <main class="main-content">
+
+        <!-- Analytics -->
+
+        <section class="analytics">
+
+            <div class="analytics-card">
+
+                <h3>Total Emails</h3>
+
+                <span id="totalEmails">
+                    0
+                </span>
+
+            </div>
+
+            <div class="analytics-card">
+
+                <h3>Favorites</h3>
+
+                <span id="favoriteCount">
+                    0
+                </span>
+
+            </div>
+
+            <div class="analytics-card">
+
+                <h3>Most Used Tone</h3>
+
+                <span id="mostUsedTone">
+                    -
+                </span>
+
+            </div>
+
+            <div class="analytics-card">
+
+                <h3>Recent Activity</h3>
+
+                <span id="recentActivity">
+                    None
+                </span>
+
+            </div>
+
+        </section>
+
+        <!-- Generator -->
+
+        <section id="generator"
+                 class="tab-content active">
+
+            <div class="content-card">
+
+                <h2>
+                    AI Email Generator
+                </h2>
+
+                <textarea
+                    id="prompt"
+                    placeholder="Describe the email you want to generate...">
+                </textarea>
+
+                <div class="form-row">
+
+                    <select id="tone">
+
+                        <option value="Professional">
+                            Professional
+                        </option>
+
+                        <option value="Formal">
+                            Formal
+                        </option>
+
+                        <option value="Friendly">
+                            Friendly
+                        </option>
+
+                        <option value="Casual">
+                            Casual
+                        </option>
+
+                        <option value="Persuasive">
+                            Persuasive
+                        </option>
+
+                        <option value="Apologetic">
+                            Apologetic
+                        </option>
+
+                    </select>
+
+                    <select id="length">
+
+                        <option value="Short">
+                            Short
+                        </option>
+
+                        <option value="Medium">
+                            Medium
+                        </option>
+
+                        <option value="Long">
+                            Long
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <div class="button-group">
+
+                    <button id="generateBtn">
+
+                        Generate
+
+                    </button>
+
+                    <button id="regenerateBtn">
+
+                        Regenerate
+
+                    </button>
+
+                    <button id="copyBtn">
+
+                        Copy
+
+                    </button>
+
+                </div>
+
+                <div class="result-container">
+
+                    <div id="typingLoader"
+                         class="typing-loader hidden">
+
+                        AI is writing...
+
+                    </div>
+
+                    <textarea
+                        id="generatedEmail"
+                        placeholder="Generated email will appear here...">
+                    </textarea>
+
+                </div>
+
+                <div class="button-group">
+
+                    <button id="pdfBtn">
+
+                        Export PDF
+
+                    </button>
+
+                    <button id="txtBtn">
+
+                        Export TXT
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Templates -->
+
+        <section id="templates"
+                 class="tab-content">
+
+            <div class="content-card">
+
+                <h2>
+                    Email Templates
+                </h2>
+
+                <div class="template-grid">
+
+                    <div class="template-card">
+                        Job Application
+                    </div>
+
+                    <div class="template-card">
+                        Internship Application
+                    </div>
+
+                    <div class="template-card">
+                        Leave Request
+                    </div>
+
+                    <div class="template-card">
+                        Meeting Request
+                    </div>
+
+                    <div class="template-card">
+                        Follow-up Email
+                    </div>
+
+                    <div class="template-card">
+                        Sales Outreach
+                    </div>
+
+                    <div class="template-card">
+                        Customer Support
+                    </div>
+
+                    <div class="template-card">
+                        Business Proposal
+                    </div>
+
+                    <div class="template-card">
+                        Complaint Email
+                    </div>
+
+                    <div class="template-card">
+                        Thank You Email
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- History -->
+
+        <section id="history"
+                 class="tab-content">
+
+            <div class="content-card">
+
+                <h2>
+                    Email History
+                </h2>
+
+                <input
+                    type="text"
+                    id="historySearch"
+                    placeholder="Search History">
+
+                <div id="historyList">
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Favorites -->
+
+        <section id="favorites"
+                 class="tab-content">
+
+            <div class="content-card">
+
+                <h2>
+                    Favorite Emails
+                </h2>
+
+                <div id="favoriteList">
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Settings -->
+
+        <section id="settings"
+                 class="tab-content">
+
+            <div class="content-card">
+
+                <h2>
+                    Settings
+                </h2>
+
+                <button id="logoutBtn">
+
+                    Logout
+
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script src="js/auth-guard.js"></script>
+
+<script src="js/api.js"></script>
+
+<script src="js/history.js"></script>
+
+<script src="js/favorites.js"></script>
+
+<script src="js/analytics.js"></script>
+
+<script src="js/dashboard.js"></script>
+
+<script src="js/templates.js"></script>
+
+<script src="js/export.js"></script>
+
+<script src="js/utils.js"></script>
+
+<!-- Delete Modal -->
+
+<div
+    id="deleteModal"
+    class="modal hidden">
+
+    <div class="modal-content">
+
+        <h3>
+            Delete Email?
+        </h3>
+
+        <p>
+            This action cannot be undone.
+        </p>
+
+        <div class="modal-buttons">
+
+            <button
+                id="cancelDeleteBtn">
+                Cancel
+            </button>
+
+            <button
+                id="confirmDeleteBtn">
+                Delete
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div id="toastContainer"></div>
+
+</body>
+
+</html>
